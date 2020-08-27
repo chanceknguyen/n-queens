@@ -91,10 +91,7 @@
           storage[currentValue]++;
         }
       }
-      if (storage[1] > 1) {
-        return true;
-      }
-      return false;
+      return storage[1] > 1 ? true : false;
     },
 
     // test if any rows on this board contain conflicts
@@ -127,10 +124,7 @@
           storage[currentValue]++;
         }
       }
-      if (storage[1] > 1) {
-        return true;
-      }
-      return false;
+      return storage[1] > 1 ? true : false;
     },
 
     // test if any columns on this board contain conflicts

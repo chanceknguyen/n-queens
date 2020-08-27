@@ -17,7 +17,29 @@
 
 window.findNRooksSolution = function(n) {
   var solution = undefined; //fixme
-
+  var board = new Board({n: n});
+  var matrix = board.rows();
+  // create toggle counter
+  // iterate through board
+  //   iterate through rows
+  //   check if current value has any rook conflicts
+  //     if not, then toggle pieces
+  //     and increment toggle counter
+  //   if counter = n
+  //     set solution equal to board;
+  var toggleCounter = 0;
+  for (var i = 0; i < n; i++) {
+    var currentRow = matrix[i];
+    for (var j = 0; j < n; j++) {
+      if (!board.hasRowConflictAt.apply(board, currentRow) && !board.hasColConflictAt.call(board, j) ) {
+        board.togglePiece.apply(board, [currentRow, j]);
+        toggleCounter++;
+      }
+    }
+  }
+  if (toggleCounter === n) {
+    solution = matrix;
+  }
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
   return solution;
 };
